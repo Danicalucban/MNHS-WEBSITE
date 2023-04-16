@@ -1,0 +1,120 @@
+@use "../globals/variables";
+@use "../globals/mixins";
+
+.accordion-wrapper {
+  font-size: 1.2em;
+  margin: 2.5em 0;
+
+  &__header {
+    font-size: 1em;
+    padding-bottom: 0.5em;
+
+    & > p {
+      font-size: 1em;
+      font-weight: variables.getFontWeight("semiBold");
+    }
+  }
+
+  &__contents {
+    color: variables.$primary-color;
+    width: fit-content;
+    margin-inline: auto;
+    font-size: 1em;
+
+    & > .accordion-wrapper__dropdown-item + .accordion-wrapper__dropdown-item {
+    }
+  }
+  &__sr-highschool {
+    padding-bottom: var(--padding-accordion);
+    border-bottom: 1px solid black;
+  }
+
+  &__jr-highschool {
+    padding-top: var(--padding-accordion);
+  }
+
+  &__dropdown-item {
+    font-size: 1em;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    /* flex-direction: column; */
+    /* align-items: center; */
+    /* justify-content: start; */
+    column-gap: 5em;
+
+    & > span {
+      font-size: 1em;
+      display: block;
+    }
+
+    & .material-icon-dropdown {
+      aspect-ratio: 1 / 1;
+      width: 1.5em;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 1px solid black;
+      cursor: pointer;
+    }
+  }
+
+  .accordion-wrapper-dropdopwn-items {
+    &__dropdown-menu {
+      overflow: hidden;
+      max-height: 0;
+      grid-column: 1 / -1;
+      transition: all 0.5s ease-out;
+      & > ul {
+        list-style-type: none;
+
+        & > * + * {
+          padding-top: 0.5em;
+        }
+      }
+
+      &.active {
+        max-height: 15rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .accordion-wrapper {
+    display: grid;
+    place-content: center;
+
+    &__header {
+      & > p {
+      }
+    }
+
+    &__contents {
+    }
+    &__sr-highschool {
+    }
+
+    &__jr-highschool {
+    }
+
+    &__dropdown-item {
+      & > span {
+      }
+
+      & .material-icon-dropdown {
+      }
+    }
+
+    .accordion-wrapper-dropdopwn-items {
+      &__dropdown-menu {
+        & > ul {
+          & > * + * {
+          }
+        }
+
+        &.active {
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+@use "../globals/variables";
+
+@mixin styledBtn($bg-color, $text-color, $border-radius) {
+  font-size: 1em;
+  display: block;
+  background-color: $bg-color;
+  border: none;
+  border-radius: $border-radius;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  will-change: transform;
+  transition: transform 150ms ease-out;
+  &:hover {
+    transform: scale(0.95);
+  }
+
+  & > a {
+    text-decoration: none;
+    color: $text-color;
+    font-size: 1em;
+    display: block;
+  }
+}
+
+@mixin activePage() {
+  background-color: variables.$primary-color;
+  padding: 0.5em 1em;
+  color: variables.$secondary-color;
+  border-radius: 0.2em;
+}

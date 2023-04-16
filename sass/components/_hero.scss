@@ -1,0 +1,139 @@
+@use "../globals/variables";
+@use "../globals/mixins";
+
+.hero-wrapper {
+  font-size: 1em;
+
+  .hero-contents {
+    color: variables.$primary-color;
+    padding-top: 2em;
+    font-size: 1em;
+    // outline: 1px solid black;
+
+    & > * + * {
+      margin-top: 1.5em;
+    }
+
+    &__btn {
+      text-transform: uppercase;
+      margin-inline: auto;
+      @include mixins.styledBtn(
+        variables.$primary-color,
+        variables.$secondary-color,
+        0.9em
+      );
+
+      & > a {
+        padding: 1.2em;
+      }
+    }
+
+    &__image-wrapper {
+      width: fit-content;
+      margin-inline: auto;
+
+      & > img {
+        max-width: 100%;
+      }
+    }
+
+    .hero-text-contents {
+      font-size: 1em;
+      text-align: center;
+
+      &__footer {
+        & > svg {
+          display: none;
+        }
+      }
+
+      &__title {
+        h3 {
+          font-size: 1.5em;
+        }
+      }
+
+      &__desc {
+        padding-top: 1em;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-wrapper {
+    font-size: 1em;
+    padding: 3em 0 15em 0;
+
+    .hero-contents {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      // outline: 1px solid black;
+
+      & > * + * {
+        margin-top: 1.5em;
+      }
+
+      &__btn {
+        grid-column: 2 / -1;
+        text-transform: uppercase;
+        margin-inline: auto;
+        @include mixins.styledBtn(
+          variables.$primary-color,
+          variables.$secondary-color,
+          0.9em
+        );
+        display: none;
+
+        & > a {
+          padding: 1.2em;
+        }
+      }
+
+      &__image-wrapper {
+        grid-column: 2 / 3;
+        grid-row: 1 / 3;
+        width: fit-content;
+        margin-inline: auto;
+
+        & > img {
+          max-width: 100%;
+          width: 35em;
+        }
+      }
+
+      .hero-text-contents {
+        font-size: 1em;
+        text-align: left;
+        grid-row: 1 / 3;
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        flex-direction: column;
+
+        &__footer {
+          padding-top: 3em;
+          display: flex;
+          align-items: center;
+          gap: 2.5em;
+
+          & > svg {
+            display: block;
+          }
+        }
+
+        &__title {
+          h3 {
+            font-size: 3em;
+          }
+        }
+
+        &__desc {
+          width: 100%;
+          padding-top: 1em;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,155 @@
+@use "../globals/mixins";
+@use "../globals/variables";
+
+.about-preview-wrapper {
+  font-size: var(--clamp-values);
+  padding: 10em 1em 4em 1em;
+  background-color: variables.$primary-color;
+  position: relative;
+
+  .page-divider {
+    position: absolute;
+    width: 100%;
+    top: -1%;
+    left: 0;
+  }
+
+  .about-preview-contents {
+    width: var(--padding);
+    margin-inline: auto;
+    color: variables.$secondary-color;
+    font-size: 1em;
+    text-align: center;
+
+    & > * + * {
+      margin-top: 1.5em;
+    }
+
+    & > img {
+      display: block;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      max-width: 100%;
+      margin-inline: auto;
+    }
+
+    &__text-contents {
+      font-size: 1em;
+    }
+
+    &__title {
+      font-size: 2em;
+    }
+
+    &__desc {
+      padding-top: 2em;
+      text-align: center;
+      font-size: 0.85em;
+      line-height: 1.5;
+    }
+
+    &__btn {
+      font-size: 1em;
+      margin-inline: auto;
+      @include mixins.styledBtn(
+        variables.$secondary-color,
+        variables.$primary-color,
+        0.5em
+      );
+
+      & > a {
+        font-size: 1em;
+        padding: 1em 1.5em;
+        text-transform: uppercase;
+        font-weight: variables.getFontWeight("semiBold");
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-preview-wrapper {
+    padding: 26em 1em 15em 1em;
+
+    .page-divider {
+      position: absolute;
+      width: 100%;
+      top: -1%;
+      left: 0;
+    }
+
+    .about-preview-contents {
+      margin-inline: auto;
+      display: flex;
+      gap: 5em;
+
+      & > * + * {
+        margin-top: unset;
+      }
+
+      & > * {
+        flex: 1 1 0px;
+      }
+
+      & > img {
+        margin-inline: unset;
+        width: 3em;
+      }
+
+      &__text-contents {
+        font-size: 1.2em;
+        text-align: left;
+      }
+
+      &__title {
+      }
+
+      &__desc {
+        text-align: left;
+      }
+
+      &__btn {
+        font-size: 0.7em;
+        display: none;
+      }
+    }
+  }
+
+  // .about-preview-contents {
+  //   margin-inline: unset;
+  //   display: flex;
+  //   gap: 1em;
+
+  //   & > * {
+  //     flex: 1 1 0px;
+  //   }
+
+  //   & > img {
+  //     width: 3em;
+  //     max-width: unset !important;
+  //   }
+  // }
+
+  // .about-preview-wrapper .about-preview-contents__btn {
+  //   display: none;
+  // }
+}
+
+// .about-preview-contents {
+//   margin-inline: unset;
+//   display: flex;
+//   gap: 1em;
+
+//   & > * {
+//     flex: 1 1 0px;
+//   }
+
+//   & > img {
+//     width: 3em;
+//     max-width: unset !important;
+//   }
+// }
+
+// .about-preview-wrapper .about-preview-contents__btn {
+//   display: none;
+// }
